@@ -1,0 +1,86 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "users": [
+    {
+      "email": "elo@gmail.com",
+      "password": "$2a$10$DHTPUlIfRihceq/s6zmnuuug1Z822UK6jo6iK3wi83G6ZpfmzvG.O",
+      "name": "elo",
+      "id": 1
+    },
+    {
+      "email": "munezro@gmail.com",
+      "password": "$2a$10$nl0DnXGd2Q1sbs6krcdXMeiG3Rd35zp.n.znOnLgs/xZDq45lBhDK",
+      "name": "munezro",
+      "role": "web developer",
+      "term": true,
+      "id": 2
+    },
+    {
+      "email": "op@gmail.com",
+      "password": "$2a$10$yZDYCeGMnfq8rGo15Lj.NuJ9P6GhnVsn3ybyJvP7PBQZkWShJ7rbC",
+      "name": "o",
+      "role": "mobile developper",
+      "term": true,
+      "id": 3
+    },
+    {
+      "email": "newuser@gmail.com",
+      "password": "$2a$10$52lQDtBJGZ4k0KyEvRmtkenRkWG2e5DEdyqeekoZCzQcp0//iZUoC",
+      "name": "newuser",
+      "term": true,
+      "id": 4
+    },
+    {
+      "name": "ish",
+      "email": "ish@gmail.com",
+      "password": "iop",
+      "term": true,
+      "id": 5
+    },
+    {
+      "name": "elosieish",
+      "email": "ele@gmail.com",
+      "password": "eloop",
+      "role": "wedev",
+      "terms": "true",
+      "id": 6
+    },
+    {
+      "email": "eloish@gmail.com",
+      "password": "$2a$10$gXWidMG1UlVvvxOt3AO8J.1jbPCH8rtfmRv4XfHJHB2/pu6WIesuy",
+      "id": 7
+    },
+    {
+      "email": "ishimweelo@gmail.com",
+      "password": "$2a$10$VBbswlv9bDcofTwEzf6/y.r31l2ZHS02llaOeFObTVM7oNyK2g5CO",
+      "id": 8
+    },
+    {
+      "email": "ineza@gmail.com",
+      "password": "$2a$10$OEDBu7PN0xQ.wcqnK7k2ReTDqZYAZfirOK.0MuCW9dB9YJstDOXLm",
+      "name": "ineza",
+      "term": true,
+      "id": 9
+    },
+    {
+      "email": "mugisha@gmail.com",
+      "password": "$2a$10$5MGl1BT7ww14kd9Oi3PgGOmiEnqiUkioZUbhyZqtaRUsTUWg5vbje",
+      "name": "mugisha",
+      "term": true,
+      "id": 10
+    }
+  ]
+}

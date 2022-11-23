@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <p>This is the Home page</p>
+    <div v-if="isLoggedIn">
+        
+    <h3>welcome <span>{{userinfo.email}}</span></h3>
+  </div>  
+
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+
+ export default{
+
+    name:'HomeView',
+    
+    computed:{
+        
+
+        userinfo(){ return this.$store.state.user},
+        isLoggedIn: function() { return this.$store.getters.isLoggedIn }
+    },
+    
+    
+   
+ }
 </script>
