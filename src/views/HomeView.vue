@@ -1,8 +1,7 @@
 <template>
     <p>This is the Home page</p>
     <div v-if="isLoggedIn">
-        
-    <h3>welcome <span>{{userinfo.email}}</span></h3>
+    <h3>welcome <span>{{userinfo.name}}</span></h3>
   </div>  
 
 </template>

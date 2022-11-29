@@ -9,7 +9,7 @@
             <router-link to="/">Home</router-link>
             <router-link v-if="!isLoggedIn" :to="{name:'Singup'}">Register</router-link>
             <router-link v-if="!isLoggedIn" :to="{name:'signin'}">Login</router-link>
-            <router-link v-if="isLoggedIn" :to="{name:'alluser'}">Alluser</router-link>
+            <router-link v-if="isLoggedIn"  :to="{name:'mytasks'}">Tasks</router-link>
             <span v-if="isLoggedIn"> | <a @click="logout">Logout</a></span>
             
 

@@ -3,7 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import LoginView from '../views/LoginView.vue'
 import DashbordView from '../views/DashbordView'
+import TaskTodoAppView from '../views/TaskTodoAppView'
 import store from '../store/index.js'
+
 const routes = [
   {
     path: '/',
@@ -24,6 +26,14 @@ const routes = [
     path:'/dashbord',
     name:'alluser',
     component:DashbordView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path:'/task',
+    name:'mytasks',
+    component:TaskTodoAppView,
     meta: {
       requiresAuth: true
     }

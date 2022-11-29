@@ -6,14 +6,16 @@ export default createStore({
     
     status:'',
     token: localStorage.getItem('token') || '',
-    user: {},
+    user: [],
     allusers:[],
+    url:'http://127.0.0.1:8000/api'
   },
   getters: {
     user:state=>state.user,
     isLoggedIn: state => !!state.token,
     authStatus: state => state.status,
     allusers:state=>state.allusers,
+    alltask:state=>state.todolist
     
   },
   
@@ -34,32 +36,30 @@ export default createStore({
       state.token = ''
     },
     
-    //
+    // todo app mutations 
+    GETLIST(state,alltodo)
+        {
+            state.todolist=alltodo
+        }
+        ,//addnewto
+        ADDNEWTODO(state,newtodo){
+            state.todolist.unshift(newtodo)
+        },
    
     
   },
   actions: {
+   
+    
 
-    users(){
-      return new Promise((resolve)=>{
-        axios({url:'http://localhost:3002/users',method:'get'})
-        .then(response=>{
-          this.state.allusers=response.data
-          resolve(response)
-          console.log(response)
-  
-        })
-      })
-
-    },
     
     //register
     register({commit}, user) {
       return new Promise((resolve, reject) => {
         commit('auth_request')
-        axios({ url: 'http://localhost:3002/register', data: user, method: 'POST' })
+        axios({ url: `${this.state.url}/register`, data: user, method: 'POST' })
         .then(resp => {
-          const token = resp.data.accessToken
+          const token = resp.data.token
           const user = resp.data.user
           localStorage.setItem('token', token)
           axios.defaults.headers.common['Authorization'] = token
@@ -75,9 +75,9 @@ export default createStore({
     login({commit}, user) {
       return new Promise((resolve,reject) => {
         commit('auth_request')
-        axios({ url: 'http://localhost:3002/login', data: user, method: 'post' })
+        axios({ url: `${this.state.url}/login`, data: user, method: 'POST' })
         .then(resp => {
-          const token = resp.data.accessToken
+          const token = resp.data.token
           const user = resp.data.user
           localStorage.setItem('token', token)
           
@@ -99,12 +99,36 @@ export default createStore({
         resolve()
       })
     },
+    async getalltodo({commit}) {
+      try {
+         const response=await axios.get(`${this.state.url}/todo`)
+          commit('GETLIST',response.data)
+      }catch (error) {
+          console.log(error)
+          
+      }
+  
+      },
+      async newtask({commit},newtodo){
+          try {
+              const response=await axios.post(`${this.state.url}/todo`,{name:newtodo})
+              commit('ADDNEWTODO',response.data)
+  
+              
+          } catch (error) {
+              console.log(error)
+              
+          }
+      },
   },
   //endregiter
   //login action
+
+ 
  
 
 
   modules: {
+    
   }
 })
